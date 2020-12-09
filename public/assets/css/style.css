@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Sephora";
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: "Sephora";
+    src: url(../fonts/Sephora.ttf);
+}
+
+.resp{
+    width: 100%;
+    height: auto;
+}
+
+.texts{
+    color: white;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.center{
+    justify-content: center;
+}
+
+.space-around{
+    justify-content: space-around;
+}
+
+.content-end{
+    justify-content: end;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.right{
+    justify-content: right;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.width{
+    width: 150px;
+}
+
+body{
+    background: url(../img/pages/pexels-egil-sjøholt-1906658.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header{
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px 0;
+}
+
+.logo{
+    width: 150px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+}
+
+header>nav>ul>li{
+    list-style-type: none;
+}
+
+header>nav>ul>li>a{
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.empty{
+    width: 100%;
+    height: 250px;
+}
+
+.section1{
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.travel{
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 5%;
+
+}
+
+.section2{
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.trending{
+    display: flex;
+    justify-content: space-around;
+}
+
+.windows{
+    width: 250px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+}
+
+.lang{
+    width: 20%;
+}

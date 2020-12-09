@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+<!DOCTYPE html>
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/img/icons/favicon-32x32.png') }}>
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/img/icons/favicon-16x16.png') }}>
+    <meta name=author description="Gabriel ROUILLAUD">
+    <meta name=description description="Space travel agency">
+    <meta name="keywords" description="Space, Travel, Journey, Planets, Stars, Booking">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('assets/css/style.css') }}>
+    <title>Phoenix Space Industries</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="navigation">
+            <li><a href={{ path('solar-map') }}>Map</a></li>
+            <li><a href={{ path('destinations') }}>Our Destinations</a></li>
+            <li><a href={{ path('app_login') }}>Login</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="empty"></section>
+    <section class="section1 texts">
+        <div class="intro">
+            <img src="assets/img/logos/3eme_logo (1).png" alt="" class="resp logo">
+            <h1>Welcome to<br>Phoenix Space Industries</h1>
+        </div>
+        <br>
+        <div>
+            <div>
+                <form action="" method="post" class="d-flex space-around">
+                    <label for="">Departure</label>
+                    <input type="text">
+                    <input type="date" name="date" id="date">
+                    <label for="">Arrival</label>
+                    <input type="text">
+                    <input type="button" value="Travel">
+                </form>
+
+            </div>
+        </div>
+        <div class="travel">
+            <div>
+
+            </div>
+        </div>
+    </section>
+    <section class="empty"></section>
+
+    <section class="section2">
+        <h2 class="texts">Trending</h2>
+        <div class="trending">
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+        </div>
+        <div class="trending">
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+            <div>
+                <img src="assets/img/Windows.png" alt="" class="resp windows">
+            </div>
+        </div>
+    </section>
+</main>
+<section class="empty"></section>
+<footer>
+    <nav>
+        <ul class="texts" class="">
+            <li><a href="">Contact</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">FAQ</a></li>
+        </ul>
+    </nav>
+    <div><img src={{ asset('assets/img/icons/united-kingdom.png')}} alt="" class="lang"></div>
+</footer>
+<script src="assets/js/index.js"></script>
+</body>
+</html>

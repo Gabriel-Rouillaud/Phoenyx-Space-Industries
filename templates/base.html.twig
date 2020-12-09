@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/img/icons/favicon-32x32.png') }}>
+        <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/img/icons/favicon-16x16.png') }}>
+        <meta name=author description="Gabriel ROUILLAUD">
+        <meta name=description description="Space travel agency">
+        <meta name="keywords" description="Space, Travel, Journey, Planets, Stars, Booking">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
