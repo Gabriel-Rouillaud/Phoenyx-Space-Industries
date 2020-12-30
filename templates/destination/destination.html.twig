@@ -1,0 +1,25 @@
+{% extends '_header_footer.html.twig' %}
+
+{% block title %}Nos Destinations{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/destination.css') }}">{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href{{ path('app_login') }}=>Login</a></li>
+{% endblock %}
+
+{% block main %}
+
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col skew"><img src={{ asset('assets/img/destinations/Gallifrey.jpg')}} alt=""></div>
+            <div class="col skew"><img src={{ asset('assets/img/destinations/death-star.jpg')}} alt=""></div>
+            <div class="col skew"><img src="" alt=""></div>
+            <div class="col skew"><img src="" alt=""></div>
+            <div class="col skew"><img src="" alt=""></div>
+            <div class="col skew"><img src="" alt=""></div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\DestinationRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,7 +18,7 @@ class Destination
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $name;
 
@@ -30,29 +28,24 @@ class Destination
     private $description;
 
     /**
+     * @ORM\Column(type="time")
+     */
+    private $duration;
+
+    /**
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $time_to;
+    private $date_departure;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $bought_number;
-
-    /**
-     * @ORM\OneToMany(targetEntity=card::class, mappedBy="make")
-     */
-    private $make_card;
-
-    public function __construct()
-    {
-        $this->make_card = new ArrayCollection();
-    }
+    private $date_arrival;
 
     public function getId(): ?int
     {
@@ -83,6 +76,18 @@ class Destination
         return $this;
     }
 
+    public function getDuration(): ?\DateTimeInterface
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(\DateTimeInterface $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
     public function getPrice(): ?float
     {
         return $this->price;
@@ -95,56 +100,26 @@ class Destination
         return $this;
     }
 
-    public function getTimeTo(): ?\DateTimeInterface
+    public function getDateDeparture(): ?\DateTimeInterface
     {
-        return $this->time_to;
+        return $this->date_departure;
     }
 
-    public function setTimeTo(\DateTimeInterface $time_to): self
+    public function setDateDeparture(?\DateTimeInterface $date_departure): self
     {
-        $this->time_to = $time_to;
+        $this->date_departure = $date_departure;
 
         return $this;
     }
 
-    public function getBoughtNumber(): ?int
+    public function getDateArrival(): ?\DateTimeInterface
     {
-        return $this->bought_number;
+        return $this->date_arrival;
     }
 
-    public function setBoughtNumber(int $bought_number): self
+    public function setDateArrival(?\DateTimeInterface $date_arrival): self
     {
-        $this->bought_number = $bought_number;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|card[]
-     */
-    public function getMakeCard(): Collection
-    {
-        return $this->make_card;
-    }
-
-    public function addMakeCard(card $makeCard): self
-    {
-        if (!$this->make_card->contains($makeCard)) {
-            $this->make_card[] = $makeCard;
-            $makeCard->setMake($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMakeCard(card $makeCard): self
-    {
-        if ($this->make_card->removeElement($makeCard)) {
-            // set the owning side to null (unless already changed)
-            if ($makeCard->getMake() === $this) {
-                $makeCard->setMake(null);
-            }
-        }
+        $this->date_arrival = $date_arrival;
 
         return $this;
     }

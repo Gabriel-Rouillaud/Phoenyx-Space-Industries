@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: "Sephora";
-    box-sizing: border-box;
 }
 
 @font-face{
@@ -60,34 +59,14 @@
 }
 
 body{
-    background: url(../img/pages/pexels-egil-sjøholt-1906658.jpg);
+    background-image: url("../img/pages/pexels-egil-sjøholt-1906658.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-header{
-    width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 20px 0;
-}
 
 .logo{
     width: 150px;
-}
-
-.navigation{
-    display: flex;
-    justify-content: space-around;
-}
-
-header>nav>ul>li{
-    list-style-type: none;
-}
-
-header>nav>ul>li>a{
-    font-size: 2em;
-    color: white;
-    text-decoration: none;
 }
 
 .intro{
@@ -135,14 +114,7 @@ header>nav>ul>li>a{
     width: 250px;
 }
 
-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: black;
+@média screen and (min-width:576px) and (max-width:800px){
+
 }
 
-.lang{
-    width: 20%;
-}

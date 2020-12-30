@@ -9,11 +9,33 @@
         <meta name="keywords" description="Space, Travel, Journey, Planets, Stars, Booking">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <header>
+            <nav>
+                <ul class="navigation">
+                    {% block li %}{% endblock %}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <script src="assets/js/lang.js"></script>
+    <footer>
+        <nav>
+            <ul class="texts" class="">
+                <li><a href="{{ path('page_contact') }}">Contact</a></li>
+                <li><a href="{{ path('page_privacy') }}">Privacy Policy</a></li>
+                <li><a href="{{ path('page_faq') }}">FAQ</a></li>
+            </ul>
+        </nav>
+        <div><img src={{ asset('assets/img/icons/united-kingdom.png')}} alt="" class="lang"></div>
+    </footer>
     </body>
 </html>

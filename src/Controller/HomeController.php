@@ -19,14 +19,34 @@ class HomeController extends AbstractController
      */
     public function index(): Response //*Quand je vais faire appel à la route, cette méthode vas s'executer
     {
+        return $this->render("index/index.html.twig");
+    }
 
+    /**
+     * @Route ("/contact", name="page_contact")
+     */
 
-        return $this->render('index/index.html.twig', [
-            'controller_name' => 'HomeController',
-            //* Cette ligne ne sert à rien, je l'ai gardée pour intégrer des variables
-            //*plus tard.
+    public function contact(): Response
+    {
+        return $this->render('contact.html.twig');
+    }
 
-        ]); //* Dès que la méthode est appelée, Il va renvoyer les résultats sur index.html.twig
+    /**
+     * @Route ("/faq", name="page_faq")
+     */
+
+    public function faq(): Response
+    {
+        return $this->render('faq.html.twig');
+    }
+
+    /**
+     * @Route ("/privacy", name="page_privacy")
+     */
+
+    public function privacy(): Response
+    {
+        return $this->render('privacy.html.twig');
     }
 
 }

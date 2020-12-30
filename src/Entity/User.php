@@ -3,15 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User implements UserInterface
+class User
 {
     /**
      * @ORM\Id
@@ -26,81 +24,10 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
-
-    /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $birthdate;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $adress;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $city;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $postal_code;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $confirmed_account;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $phone;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Destination::class)
-     */
-    private $buy;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Card::class, mappedBy="user")
-     */
-    private $own;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ticket::class, inversedBy="send_to")
-     */
-    private $ticket;
-
-    public function __construct()
-    {
-        $this->buy = new ArrayCollection();
-        $this->own = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -127,25 +54,6 @@ class User implements UserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
     }
 
     /**
@@ -178,179 +86,5 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getBirthdate(): ?\DateTimeInterface
-    {
-        return $this->birthdate;
-    }
-
-    public function setBirthdate(\DateTimeInterface $birthdate): self
-    {
-        $this->birthdate = $birthdate;
-
-        return $this;
-    }
-
-    public function getAdress(): ?string
-    {
-        return $this->adress;
-    }
-
-    public function setAdress(string $adress): self
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    public function getPostalCode(): ?int
-    {
-        return $this->postal_code;
-    }
-
-    public function setPostalCode(int $postal_code): self
-    {
-        $this->postal_code = $postal_code;
-
-        return $this;
-    }
-
-    public function getConfirmedAccount(): ?bool
-    {
-        return $this->confirmed_account;
-    }
-
-    public function setConfirmedAccount(?bool $confirmed_account): self
-    {
-        $this->confirmed_account = $confirmed_account;
-
-        return $this;
-    }
-
-    public function getPhone(): ?int
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(?int $phone): self
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Destination[]
-     */
-    public function getBuy(): Collection
-    {
-        return $this->buy;
-    }
-
-    public function addBuy(Destination $buy): self
-    {
-        if (!$this->buy->contains($buy)) {
-            $this->buy[] = $buy;
-        }
-
-        return $this;
-    }
-
-    public function removeBuy(Destination $buy): self
-    {
-        $this->buy->removeElement($buy);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Card[]
-     */
-    public function getOwn(): Collection
-    {
-        return $this->own;
-    }
-
-    public function addOwn(Card $own): self
-    {
-        if (!$this->own->contains($own)) {
-            $this->own[] = $own;
-            $own->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOwn(Card $own): self
-    {
-        if ($this->own->removeElement($own)) {
-            // set the owning side to null (unless already changed)
-            if ($own->getUser() === $this) {
-                $own->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getTicket(): ?Ticket
-    {
-        return $this->ticket;
-    }
-
-    public function setTicket(?Ticket $ticket): self
-    {
-        $this->ticket = $ticket;
-
-        return $this;
     }
 }

@@ -1,0 +1,39 @@
+body{
+    background: url("../img/pages/destination.jpg");
+}
+
+
+.skew {
+    transform: skew(0deg, -10deg);
+    overflow: hidden;
+    height: 100%;
+    margin-left: -1px;
+}
+
+.row {
+    height: 100%;
+}
+
+.skew img {
+    height: 30%;
+    transform: skew(0deg, 10deg) scale(1.2);
+    transition: all 1s ease;
+}
+
+.skew:hover img {
+    transform: skew(0deg, 10deg) scale(2);
+}
+
+.container-fluid {
+    height: 100vh;
+    padding: 30px 0;
+}
+
+div{
+    display: flex;
+    justify-content: space-around;
+}
+
+@média screen and (min-width:576px) and (max-width:800px){
+
+}

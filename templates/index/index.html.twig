@@ -1,26 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Phoenix Space Industries{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">{% endblock %}
 
-<head>
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('destinations') }} >Our Destinations</a></li>
+    <li><a href={{ path('app_login') }}>Login</a></li>
+{% endblock %}
 
-    <link rel="stylesheet" href={{ asset('assets/css/style.css') }}>
-    <title>Phoenix Space Industries</title>
-</head>
-<body>
-<header>
-    <nav>
-        <ul class="navigation">
-            <li><a href={{ path('solar-map') }}>Map</a></li>
-            <li><a href={{ path('destinations') }}>Our Destinations</a></li>
-            <li><a href={{ path('app_login') }}>Login</a></li>
-        </ul>
-    </nav>
-</header>
-<main>
+{% block main %}
+
+
     <section class="empty"></section>
     <section class="section1 texts">
         <div class="intro">
-            <img src="assets/img/logos/3eme_logo (1).png" alt="" class="resp logo">
+            <img src="assets/img/logos/3eme_logo(1).png" alt="" class="resp logo">
             <h1>Welcome to<br>Phoenix Space Industries</h1>
         </div>
         <br>
@@ -70,18 +65,7 @@
             </div>
         </div>
     </section>
-</main>
+
 <section class="empty"></section>
-<footer>
-    <nav>
-        <ul class="texts" class="">
-            <li><a href="">Contact</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">FAQ</a></li>
-        </ul>
-    </nav>
-    <div><img src={{ asset('assets/img/icons/united-kingdom.png')}} alt="" class="lang"></div>
-</footer>
-<script src="assets/js/index.js"></script>
-</body>
-</html>
+
+{% endblock %}

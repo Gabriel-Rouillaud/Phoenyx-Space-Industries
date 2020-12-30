@@ -15,9 +15,7 @@ class DestinationsController extends AbstractController
      */
     public function destinationList(): Response
     {
-        return $this->render('destinations/index.html.twig', [
-            'controller_name' => 'DestinationsController',
-        ]);
+        return $this->render('destination/destination.html.twig');
     }
 
     /**
