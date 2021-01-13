@@ -5,15 +5,15 @@ namespace App\Controller;
 //* J'ai appélé 3 class qui sont des fonctionnalités de Symfony
 
 use App\Form\SearchIndexType;
-use App\Repository\DepartureRepository;
-use App\Repository\ArrivalRepository;
+use App\Repository\DepartureRepository; //*Repository de departure
+use App\Repository\ArrivalRepository; //*Repository de arrival
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; //* Cette classe permet d'utiliser les {id}
 use Symfony\Component\HttpFoundation\Response; //* Cette class permet de renvoyer une reponse
 use Symfony\Component\Routing\Annotation\Route; //* Cette class permet de créer une route avec l'url vers la page demandée
 use Symfony\Component\HttpFoundation\Request; //* Cette classe permet de gérer les requête http avec la méthode $_GET et $_POST
 
 class HomeController extends AbstractController
-//* J'ai crée une class "HomeController" avec extends AbstractController ce qui permet de gérer les {id} en plus.
+//* J'ai crée une class "HomeController" avec extends AbstractController ce qui permet d'appeler un certain nombre de méthodes comme une boite à outils
 
 {
     /**

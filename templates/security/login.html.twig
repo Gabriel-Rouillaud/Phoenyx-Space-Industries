@@ -17,7 +17,7 @@
     <section class="section2">
         <div class="sign_in">
             <h2>Have already an account ?</h2>
-            <form action="post">
+            <form action="{{ path('app_login') }}" method="post">
             <label for="inputEmail">Login</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
             <label for="inputPassword">Password</label>

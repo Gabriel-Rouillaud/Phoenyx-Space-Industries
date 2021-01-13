@@ -11,16 +11,25 @@ security:
         property: email
 
   firewalls:
+
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
+
     main:
       anonymous: true
       lazy: true
+      provider: app_user_provider
       guard:
         authenticators:
-          - App\Security\LoginFormAuthenticator
+          - App\Security\AppCustomAuthenticator
+        entry_point: App\Security\AppCustomAuthenticator
       logout:
-          path: app_logout
+        path: app_logout
         # where to redirect after logout
-          target: page_index
+        target: page_index
+
+
+  access_control:
+    # - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/profile, roles: ROLE_USER }
