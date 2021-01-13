@@ -19,6 +19,9 @@ class DestinationRepository extends ServiceEntityRepository
         parent::__construct($registry, Destination::class);
     }
 
+    public function destinationPodium($podium){
+        return $this->createQueryBuilder('Destination');
+    }
     // /**
     //  * @return Destination[] Returns an array of Destination objects
     //  */

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DestinationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +20,7 @@ class Destination
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
@@ -28,24 +30,45 @@ class Destination
     private $description;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="time", nullable=true)
      */
     private $duration;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private $price;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $date_departure;
+    private $img;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\ManyToMany(targetEntity=Departure::class, inversedBy="destinations")
      */
-    private $date_arrival;
+    private $departure;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Arrival::class, inversedBy="destinations")
+     */
+    private $arrival;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $bought_number;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Card::class, cascade={"persist", "remove"})
+     */
+    private $card;
+
+    public function __construct()
+    {
+        $this->departure = new ArrayCollection();
+        $this->arrival = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -81,7 +104,7 @@ class Destination
         return $this->duration;
     }
 
-    public function setDuration(\DateTimeInterface $duration): self
+    public function setDuration(?\DateTimeInterface $duration): self
     {
         $this->duration = $duration;
 
@@ -93,33 +116,93 @@ class Destination
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
 
         return $this;
     }
 
-    public function getDateDeparture(): ?\DateTimeInterface
+    public function getImg(): ?string
     {
-        return $this->date_departure;
+        return $this->img;
     }
 
-    public function setDateDeparture(?\DateTimeInterface $date_departure): self
+    public function setImg(?string $img): self
     {
-        $this->date_departure = $date_departure;
+        $this->img = $img;
 
         return $this;
     }
 
-    public function getDateArrival(): ?\DateTimeInterface
+    /**
+     * @return Collection|Departure[]
+     */
+    public function getDeparture(): Collection
     {
-        return $this->date_arrival;
+        return $this->departure;
     }
 
-    public function setDateArrival(?\DateTimeInterface $date_arrival): self
+    public function addDeparture(Departure $departure): self
     {
-        $this->date_arrival = $date_arrival;
+        if (!$this->departure->contains($departure)) {
+            $this->departure[] = $departure;
+        }
+
+        return $this;
+    }
+
+    public function removeDeparture(Departure $departure): self
+    {
+        $this->departure->removeElement($departure);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Arrival[]
+     */
+    public function getArrival(): Collection
+    {
+        return $this->arrival;
+    }
+
+    public function addArrival(Arrival $arrival): self
+    {
+        if (!$this->arrival->contains($arrival)) {
+            $this->arrival[] = $arrival;
+        }
+
+        return $this;
+    }
+
+    public function removeArrival(Arrival $arrival): self
+    {
+        $this->arrival->removeElement($arrival);
+
+        return $this;
+    }
+
+    public function getBoughtNumber(): ?int
+    {
+        return $this->bought_number;
+    }
+
+    public function setBoughtNumber(?int $bought_number): self
+    {
+        $this->bought_number = $bought_number;
+
+        return $this;
+    }
+
+    public function getCard(): ?Card
+    {
+        return $this->card;
+    }
+
+    public function setCard(?Card $card): self
+    {
+        $this->card = $card;
 
         return $this;
     }

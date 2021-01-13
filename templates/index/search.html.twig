@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Phoenix Space Industries{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('destinations') }} >Our Destinations</a></li>
+    <li><a href={{ path('app_login') }}>Login</a></li>
+{% endblock %}
+

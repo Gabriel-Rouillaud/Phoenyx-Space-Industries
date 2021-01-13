@@ -3,6 +3,10 @@
 namespace App\Controller;
 
 //* J'ai appélé 3 class qui sont des fonctionnalités de Symfony
+
+use App\Form\SearchIndexType;
+use App\Repository\DepartureRepository;
+use App\Repository\ArrivalRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; //* Cette classe permet d'utiliser les {id}
 use Symfony\Component\HttpFoundation\Response; //* Cette class permet de renvoyer une reponse
 use Symfony\Component\Routing\Annotation\Route; //* Cette class permet de créer une route avec l'url vers la page demandée
@@ -14,12 +18,41 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="page_index")
-     * J'ai crée une route vers la page d'acceuil de mon site, la route se trouve à la racine avec "/" et je lui es
-     * donné un nom "page_index"
+     * @param Request $request
+     * @param DepartureRepository $departureRepository
+     * @param ArrivalRepository $arrivalRepository
+     * @return Response
      */
-    public function index(): Response //*Quand je vais faire appel à la route, cette méthode vas s'executer
-    {
-        return $this->render("index/index.html.twig");
+    public function index (Request $request, DepartureRepository $departureRepository, ArrivalRepository $arrivalRepository){
+
+        $searchForm = $this->createForm(SearchIndexType::class);
+        $searchForm->handleRequest($request);
+
+
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+
+            $departure = $searchForm->getData()->getDeparture();
+            $arrival = $searchForm->getData()->getArrival();
+
+
+
+            $data = $departure->search($departure) && $arrival->search($arrival);
+
+
+            if ($data == null) {
+                $this->addFlash('erreur', 'Aucun article contenant ce mot clé dans le titre n\'a été trouvé, essayez en un autre.');
+
+            }
+
+            return $this->render('index/search.html.twig');
+
+
+
+        }
+        return $this->render('index/index.html.twig', [
+            'searchForm'=>$searchForm->createView()
+        ]);
+
     }
 
     /**

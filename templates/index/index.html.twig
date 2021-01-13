@@ -21,14 +21,17 @@
         <br>
         <div>
             <div>
-                <form action="" method="post" class="d-flex space-around">
-                    <label for="">Departure</label>
-                    <input type="text">
-                    <input type="date" name="date" id="date">
-                    <label for="">Arrival</label>
-                    <input type="text">
-                    <input type="button" value="Travel">
-                </form>
+                <div class="d-flex space-around">
+                    {{ form_start(searchForm) }}
+                    {{ form_label(searchForm.departure) }}
+                        {{ form_widget(searchForm.departure) }}
+                    {{ form_label(searchForm.date) }}
+                        {{ form_widget(searchForm.date) }}
+                    {{ form_label(searchForm.arrival) }}
+                        {{ form_widget(searchForm.arrival) }}
+                    {{ form_end(searchForm) }}
+                </div>
+
 
             </div>
         </div>
@@ -39,9 +42,9 @@
         </div>
     </section>
     <section class="empty"></section>
-
+    <h2 class="texts">Trending</h2>
     <section class="section2">
-        <h2 class="texts">Trending</h2>
+
         <div class="trending">
             <div>
                 <img src="assets/img/Windows.png" alt="" class="resp windows">

@@ -1,0 +1,22 @@
+{% extends '_header_footer.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href={{ asset('assets/css/login.css') }}>{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href={{ path('destinations') }}>Our Destinations</a></li>
+{% endblock %}
+
+{% block main %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

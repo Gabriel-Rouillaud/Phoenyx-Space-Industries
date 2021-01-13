@@ -5,20 +5,19 @@
 
 {% block li %}
     <li><a href={{ path('solar-map') }}>Map</a></li>
-    <li><a href={{ path('page_index') }} >Home</a></li>
-    <li><a href{{ path('app_login') }}=>Login</a></li>
+    <li><a href={{ path('page_index') }}>Home</a></li>
+    <li><a href={{ path('app_login') }}>Login</a></li>
 {% endblock %}
 
 {% block main %}
 
     <div class="container-fluid">
         <div class="row h-100">
+            {% for destination in destination %}
             <div class="col skew"><img src={{ asset('assets/img/destinations/Gallifrey.jpg')}} alt=""></div>
-            <div class="col skew"><img src={{ asset('assets/img/destinations/death-star.jpg')}} alt=""></div>
-            <div class="col skew"><img src="" alt=""></div>
-            <div class="col skew"><img src="" alt=""></div>
-            <div class="col skew"><img src="" alt=""></div>
-            <div class="col skew"><img src="" alt=""></div>
+            {% else %}
+            <p>There is no destinations there</p>
+            {% endfor %}
         </div>
     </div>
 
