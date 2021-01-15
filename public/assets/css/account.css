@@ -1,3 +1,25 @@
 body{
     background: url("../img/pages/account.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.welcome{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    color: white;
+}
+
+@media screen and(max-width: 576px){
+    li{
+        display: none;
+    }
+
+    .body{
+        background-size: contain;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Destination;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,9 +17,10 @@ class DestinationType extends AbstractType
             ->add('description')
             ->add('duration')
             ->add('price')
-            ->add('img')
-            ->add('departure')
-            ->add('arrival')
+            ->add('img' , FileType::class, [
+                'required' => false,
+                'mapped' => false
+            ])
         ;
     }
 

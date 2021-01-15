@@ -52,11 +52,6 @@ class User implements UserInterface
     private $adress;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $confirmed_account;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $genre;
@@ -203,17 +198,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getConfirmedAccount(): ?bool
-    {
-        return $this->confirmed_account;
-    }
-
-    public function setConfirmedAccount(?bool $confirmed_account): self
-    {
-        $this->confirmed_account = $confirmed_account;
-
-        return $this;
-    }
 
     public function getGenre(): ?string
     {

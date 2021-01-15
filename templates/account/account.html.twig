@@ -5,7 +5,28 @@
 
 {% block li %}
     <li><a href={{ path('solar-map') }}>Map</a></li>
-    <li><a href={{ path('page_index') }} >Our Destinations</a></li>
-    <li><a href={{ path('app_logout') }}>Login</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href={{ path('app_logout') }}>Logout</a></li>
 {% endblock %}
 
+{% block main %}
+
+    <div class="welcome">
+        <h1>Welcome</h1>
+        <h2>{{ app.user.firstname }} {{ app.user.name }}</h2>
+    </div>
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin_destination_manager') }}"><div>Destination Manager</div></a>
+        <a href=""><div>User Manager</div></a>
+    {% endif %}
+
+    <a href="{{ path('page_profile')}}"><div>Your personals informations</div></a>
+
+
+
+
+
+
+{% endblock %}

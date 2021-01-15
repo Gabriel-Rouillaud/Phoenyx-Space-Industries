@@ -1,0 +1,45 @@
+{% extends '_header_footer.html.twig' %}
+
+{% block title %}New Destination{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/destination_manager.css') }}">{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href={{ path('page_account') }}>Account</a></li>
+{% endblock %}
+
+{% block main %}
+
+    <div>
+        <h1>Create a new Destination</h1>
+    </div>
+
+    <div class="form">
+        {{ form_start(form) }}
+
+        <div>
+            <label for="{{ form.name.vars.id }}">Name</label>
+            <input type="text" id="{{ form.name.vars.id }}" value="{{ form.name.vars.value }}" name="{{ form.name.vars.full_name }}">
+            {% do form.name.setRendered %}
+        </div>
+        <div>
+            <label for="{{ form.description.vars.id }}">description</label>
+            <input type="text" value="{{ form.description.vars.value }}" name="{{ form.description.vars.full_name }}" id="{{ form.description.vars.id }}">
+            {% do form.description.setRendered %}
+        </div>
+        <div>
+
+        </div>
+
+
+        <button type="submit">Create</button>
+        {{ form_end(form) }}
+
+    </div>
+
+
+    <a href="{{ path('admin_destination_manager') }}">back to list</a>
+
+{% endblock %}

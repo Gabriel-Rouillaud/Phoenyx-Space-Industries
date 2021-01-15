@@ -22,7 +22,8 @@ class DepartureRepository extends ServiceEntityRepository
 
     public function search ($departure){
         return $this->createQueryBuilder('Departure')
-            ->select('Departure.destinations', 'Departure.date_departure')
+            ->select('Departure.destinations')
+            ->from(Departure::class)
             ->andWhere('Departure.destinations LIKE :name')
             ->innerJoin(Destination::class)
             ->setParameter('departure', '%'.$departure.'%')

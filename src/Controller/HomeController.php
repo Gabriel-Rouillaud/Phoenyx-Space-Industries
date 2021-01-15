@@ -36,15 +36,18 @@ class HomeController extends AbstractController
 
 
 
-            $data = $departure->search($departure) && $arrival->search($arrival);
+            $data_departure = $departure->search($departure);
+            $data_arrival = $arrival->search($arrival);
 
-
-            if ($data == null) {
-                $this->addFlash('erreur', 'Aucun article contenant ce mot clé dans le titre n\'a été trouvé, essayez en un autre.');
+            if (($data_departure && $data_arrival) == null) {
+                $this->addFlash('error', 'Sorry, there is not travel for now.');
 
             }
 
-            return $this->render('index/search.html.twig');
+            return $this->render('index/search.html.twig', [
+                'departure' => $data_departure,
+                'arrival' => $data_arrival
+            ]);
 
 
 

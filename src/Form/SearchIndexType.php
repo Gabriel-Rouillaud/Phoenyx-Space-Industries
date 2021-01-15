@@ -5,9 +5,10 @@ namespace App\Form;
 
 use App\Entity\Departure;
 use App\Entity\Arrival;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use App\Entity\Destination;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,9 +19,14 @@ class SearchIndexType extends AbstractType
     {
 
         $builder
-            ->add('departure', TextType::class)
+            ->add('departure', TextType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a departure'
+                    ])
+                ]
+            ])
             ->add('arrival', TextType::class)
-            ->add('date', DateType::class)
             ->add('travel', SubmitType::class, ['label' => 'Travel'])
         ;
     }
@@ -29,7 +35,8 @@ class SearchIndexType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Departure::class,
-                            Arrival::class
+                            Arrival::class,
+                            Destination::class
         ]);
     }
 }

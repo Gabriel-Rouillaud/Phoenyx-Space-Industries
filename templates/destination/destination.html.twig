@@ -12,9 +12,9 @@
 {% block main %}
 
     <div class="container-fluid">
-        <div class="row h-100">
+        <div class="row destination">
             {% for destination in destination %}
-            <div class="col skew"><img src={{ asset('assets/img/destinations/Gallifrey.jpg')}} alt=""></div>
+            <div><img src={{ asset('assets/img/destinations/Gallifrey.jpg')}} alt="" class="width"></div>
             {% else %}
             <p>There is no destinations there</p>
             {% endfor %}
