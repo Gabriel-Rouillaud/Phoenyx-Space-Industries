@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/manager.css') }}">{% endblock %}
+
+{% block title %}User Manager{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href={{ path('page_account') }}>Account</a></li>
+{% endblock %}
+
+{% block main %}
+
+
+    <section class="title">
+        <h1>User Manager</h1>
+    </section>
+
+    <section class="new">
+        <a href="{{ path('admin_destination_new') }}">New Destination</a>
+    </section>
+
+    <section class="tab">
+        <h3>Image</h3>
+        <h3>Name</h3>
+        <h3>Description</h3>
+        <h3>Price</h3>
+        <h3>Actions</h3>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

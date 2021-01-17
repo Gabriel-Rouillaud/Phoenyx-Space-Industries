@@ -1,4 +1,4 @@
-{%  extends "_header_footer.html.twig" %}
+{%  extends "base.html.twig" %}
 
 {% block title %}Login{% endblock %}
 {% block stylesheets %}<link rel="stylesheet" href={{ asset('assets/css/login.css') }}>{% endblock %}
@@ -16,26 +16,34 @@
 
     <section class="section2">
         <div class="sign_in">
+
             <h2>Have already an account ?</h2>
-            <form action="{{ path('app_login') }}" method="post">
-            <label for="inputEmail">Login</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-            <label for="inputPassword">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+            <form action="{{ path('app_login') }}" method="post" class="login_form">
+                <div class="login">
+                    <label for="inputEmail">Login</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                </div>
+
+                <div class="password">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+                </div>
+
+
 
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
             >
 
-            <button type="submit">
-                Sign in
-            </button>
+            <button type="submit">Sign in</button>
+
             </form>
         </div>
         <div class="sign_up">
             <h2>You are new ?</h2>
             <p>Create a new account to begin your journey</p>
-            <button><a href="{{ path('app_register') }}">Sign up !</a></button>
+            <a href="{{ path('app_caution') }}"><button>Sign up !</button></a>
         </div>
 
     </section>

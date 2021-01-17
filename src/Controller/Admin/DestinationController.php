@@ -106,7 +106,7 @@ class DestinationController extends AbstractController
 
             // je récupère mon fichier uploadé dans le formulaire (vu que dans le gabarit
             // de formulaire, j'ai mis ce champs à 'mapped => false"
-            $imageFile = $form->get('imageFileName')->getData();
+            $imageFile = $form->get('img')->getData();
 
             // si j'ai bien récupéré une image (il peut y avoir des articles
             // uploadés sans image), alors je vais la déplacer puis enregistrer son nom en bdd

@@ -1,8 +1,8 @@
-{% extends '_header_footer.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}New Destination{% endblock %}
 
-{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/destination_manager.css') }}">{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/manager.css') }}">{% endblock %}
 
 {% block li %}
     <li><a href={{ path('solar-map') }}>Map</a></li>
@@ -11,35 +11,51 @@
 {% endblock %}
 
 {% block main %}
+    <a href="{{ path('admin_destination_manager') }}">back to list</a>
 
-    <div>
+    <div class="title">
         <h1>Create a new Destination</h1>
     </div>
+
+
 
     <div class="form">
         {{ form_start(form) }}
 
-        <div>
+        <div class="fields">
             <label for="{{ form.name.vars.id }}">Name</label>
             <input type="text" id="{{ form.name.vars.id }}" value="{{ form.name.vars.value }}" name="{{ form.name.vars.full_name }}">
             {% do form.name.setRendered %}
         </div>
-        <div>
+        <div class="fields">
             <label for="{{ form.description.vars.id }}">description</label>
             <input type="text" value="{{ form.description.vars.value }}" name="{{ form.description.vars.full_name }}" id="{{ form.description.vars.id }}">
             {% do form.description.setRendered %}
         </div>
-        <div>
-
+        <div class="fields">
+            <label for="{{ form.duration.vars.id }}">Duration</label>
+            {{ form_widget(form.duration) }}
+        </div>
+        <div class="fields">
+            <label for="{{ form.price.vars.id }}">Price</label>
+            <input type="text" id="{{ form.price.vars.id }}" name="{{ form.price.vars.full_name }}" value="{{ form.price.vars.value }}">
+            {% do form.price.setRendered %}
+        </div>
+        <div class="fields">
+            <label for="{{ form.img.vars.id }}">Picture</label>
+            <input type="file" id="{{ form.img.vars.id }}" name="{{ form.img.vars.full_name }}" value="{{ form.img.vars.value }}">
+            {% do form.img.setRendered %}
         </div>
 
+        <div class="fields">
+            <button type="submit">Create</button>
+        </div>
 
-        <button type="submit">Create</button>
         {{ form_end(form) }}
 
     </div>
 
 
-    <a href="{{ path('admin_destination_manager') }}">back to list</a>
+
 
 {% endblock %}

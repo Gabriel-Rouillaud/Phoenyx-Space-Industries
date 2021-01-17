@@ -12,12 +12,14 @@ class UserController extends AbstractController
 {
     /**
      * @Route ("/admin/usermanager", name="admin_user_manager")
+     * @param UserRepository $userRepository
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function userList(UserRepository $userRepository)
     {
         $users = $userRepository->findAll();
 
-        return $this->render('');
+        return $this->render('back-office/usermanager/index.html.twig');
     }
 
 

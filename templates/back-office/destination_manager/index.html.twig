@@ -1,6 +1,6 @@
-{% extends '_header_footer.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/destination_manager.css') }}">{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/manager.css') }}">{% endblock %}
 
 {% block title %}Destination Manager{% endblock %}
 
@@ -25,32 +25,27 @@
         <h3>Image</h3>
         <h3>Name</h3>
         <h3>Description</h3>
+        <h3>Duration</h3>
         <h3>Price</h3>
         <h3>Actions</h3>
     </section>
 
     {% for destination in destination %}
 
-        <a href="{{ path('admin_destination_show', {'id' : destination.id}) }}" class="sel-destination">
-            {% if destination.img %}
-                {#
-                je récupère le nom du fichier uploadé
-                pour cet article que je concatène avec le dossier
-                dans lequel il a été uploadé
-                #}
+        <section class="sel-destination">
 
-                <img src="{{ asset('uploads/articles/' ~ destination.img) }}" alt="">
-            {% endif %}
-        </a>
-
-            <div>{{ destination.name }}</div>
-            <div> {{ destination.description }}</div>
+            <div class="pictures"><img src="{{ asset('assets/img/destinations/' ~ destination.img) }}" alt=""></div>
+            <div><p>{{ destination.name }}</p></div>
+            <div><p>{{ destination.description }}</p></div>
             <div>{{ destination.duration ? destination.duration|date('H:i')}}</div>
             <div>{{ destination.price }}</div>
-            <div class="action">
+            <div>
                 <a href="{{ path('admin_destination_edit', {'id' : destination.id}) }}">Edit</a>
                 <a href="{{ path('admin_destination_delete', {'id': destination.id}) }}">Delete</a>
             </div>
+        </section>
+
+
 
     {% else %}
 

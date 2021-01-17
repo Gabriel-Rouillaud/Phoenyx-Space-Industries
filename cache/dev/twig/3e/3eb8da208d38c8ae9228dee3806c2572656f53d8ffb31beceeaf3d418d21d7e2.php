@@ -35,7 +35,7 @@ class __TwigTemplate_42951d65db3a94d108ab789c42a9251018496f0c7a96188f4abcd418394
     protected function doGetParent(array $context)
     {
         // line 1
-        return "_header_footer.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -47,7 +47,7 @@ class __TwigTemplate_42951d65db3a94d108ab789c42a9251018496f0c7a96188f4abcd418394
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "destination/destination.html.twig"));
 
-        $this->parent = $this->loadTemplate("_header_footer.html.twig", "destination/destination.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "destination/destination.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -183,7 +183,7 @@ class __TwigTemplate_42951d65db3a94d108ab789c42a9251018496f0c7a96188f4abcd418394
 
     public function getSourceContext()
     {
-        return new Source("{% extends '_header_footer.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Nos Destinations{% endblock %}
 {% block stylesheets %}<link rel=\"stylesheet\" href=\"{{ asset('assets/css/destination.css') }}\">{% endblock %}

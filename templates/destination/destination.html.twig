@@ -1,4 +1,4 @@
-{% extends '_header_footer.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Nos Destinations{% endblock %}
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/destination.css') }}">{% endblock %}
@@ -6,19 +6,36 @@
 {% block li %}
     <li><a href={{ path('solar-map') }}>Map</a></li>
     <li><a href={{ path('page_index') }}>Home</a></li>
-    <li><a href={{ path('app_login') }}>Login</a></li>
+    {% if app.user %}
+        <li><a href={{ path('page_account') }}>Account</a></li>
+    {% else %}
+        <li><a href={{ path('app_login') }}>Login</a></li>
+    {% endif %}
 {% endblock %}
 
 {% block main %}
 
-    <div class="container-fluid">
-        <div class="row destination">
-            {% for destination in destination %}
-            <div><img src={{ asset('assets/img/destinations/Gallifrey.jpg')}} alt="" class="width"></div>
-            {% else %}
-            <p>There is no destinations there</p>
-            {% endfor %}
-        </div>
-    </div>
+    <div class="background"></div>
+
+ <div class="destination_box">
+
+     {% for destination in destination %}
+
+     <div class="card">
+         <img src="{{ asset('assets/img/destinations/' ~ destination.img) }}" alt="">
+         <p>{{ destination.name }}</p>
+     </div>
+
+    {% endfor %}
+
+ </div>
+
+
+
+
+
+
+
+
 
 {% endblock %}

@@ -35,7 +35,7 @@ class __TwigTemplate_2e7f716b949c22d5075f01840ef3fd65376b74426c1a1d12a9c135de87f
     protected function doGetParent(array $context)
     {
         // line 1
-        return "_header_footer.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -47,7 +47,7 @@ class __TwigTemplate_2e7f716b949c22d5075f01840ef3fd65376b74426c1a1d12a9c135de87f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "solar-map/solarmap.html.twig"));
 
-        $this->parent = $this->loadTemplate("_header_footer.html.twig", "solar-map/solarmap.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "solar-map/solarmap.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -169,7 +169,7 @@ class __TwigTemplate_2e7f716b949c22d5075f01840ef3fd65376b74426c1a1d12a9c135de87f
 
     public function getSourceContext()
     {
-        return new Source("{% extends '_header_footer.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 {% block stylesheets %}<link rel=\"stylesheet\" href={{ asset('assets/css/map.css') }}>{% endblock %}
 {% block title%}Solar Map{% endblock %}
 

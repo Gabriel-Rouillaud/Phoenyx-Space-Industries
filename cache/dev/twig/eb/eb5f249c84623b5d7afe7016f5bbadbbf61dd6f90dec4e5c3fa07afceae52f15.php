@@ -34,7 +34,7 @@ class __TwigTemplate_94cf6802d2b6427517e89be54bb498aac4c663ed1b3476145ac2934029a
     protected function doGetParent(array $context)
     {
         // line 1
-        return "@WebProfiler/Profiler/base.html.twig";
+        return "@WebProfiler/Profiler/base_index.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -489,7 +489,7 @@ class __TwigTemplate_94cf6802d2b6427517e89be54bb498aac4c663ed1b3476145ac2934029a
 
     public function getSourceContext()
     {
-        return new Source("{% extends '@WebProfiler/Profiler/base.html.twig' %}
+        return new Source("{% extends '@WebProfiler/Profiler/base_index.html.twig' %}
 
 {% block body %}
     {{ include('@WebProfiler/Profiler/header.html.twig', with_context = false) }}

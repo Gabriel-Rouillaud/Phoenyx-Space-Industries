@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href={{ asset('assets/css/login.css') }}>{% endblock %}
+
+{% block li %}
+    <li><a href={{ path('solar-map') }}>Map</a></li>
+    <li><a href={{ path('page_index') }} >Home</a></li>
+    <li><a href={{ path('destinations') }}>Our Destinations</a></li>
+{% endblock %}
+
+{% block main %}
+
+<div class="caution">
+    <h2>Welcome !</h2>
+
+    <p>This is a fictionnal website, please don't give your personnals informations</p>
+
+    <p>Keep your data private and secured, and make your own fictionnal character during your registration</p>
+
+    <p>Enjoy</p>
+
+    <a href="{{ path('app_register') }}"><button>Continue</button></a>
+</div>
+
+{% endblock %}

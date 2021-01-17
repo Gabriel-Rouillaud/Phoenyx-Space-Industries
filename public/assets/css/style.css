@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: "Sephora";
+    box-sizing: inherit;
 }
 
 @font-face{
@@ -14,59 +15,25 @@
     height: auto;
 }
 
-.texts{
-    color: white;
-}
-
-.text-align-right{
-    text-align: right;
-}
-
-.text-align-center{
-    text-align: center;
-}
-
-.d-flex{
-    display: flex;
-}
-
-.center{
-    justify-content: center;
-}
-
-.space-around{
-    justify-content: space-around;
-}
-
-.content-end{
-    justify-content: end;
-}
-
-.align-center{
-    align-items: center;
-}
-
-.right{
-    justify-content: right;
-}
-
-.column{
-    flex-direction: column;
-}
-
 .width{
     width: 150px;
 }
 
+
+
 body{
     background-image: url("../img/pages/pexels-egil-sjøholt-1906658.jpg");
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-
-.logo{
-    width: 150px;
+section{
+    margin: 250px 0;
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    color : white;
 }
 
 .intro{
@@ -74,21 +41,31 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
 }
 
-.empty{
+.form{
     width: 100%;
-    height: 250px;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
 }
 
-.section1{
-    width: 100%;
-    height: 400px;
-    background: rgba(0, 0, 0, 0.75);
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
+
+
+.logo{
+    width: 150px;
+    height: auto;
+}
+
+
 
 .travel{
-    height: 150px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -97,24 +74,47 @@ body{
 }
 
 .section2{
-    width: 100%;
-    height: 400px;
-    background: rgba(0, 0, 0, 0.75);
+
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.trending{
-    display: flex;
-    justify-content: space-around;
-}
+
 
 .windows{
     width: 250px;
 }
 
-@média screen and (min-width:576px) and (max-width:800px){
+@media screen and (max-width:800px){
+
+
+
+    body{
+        background-position: center;
+        background-size: cover;
+    }
+
+
+    .form{
+        display: block;
+        padding: 50px 0;
+    }
+
+    .search{
+        align-items: center;
+    }
+
+    .travel{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5%;
+
+    }
+
+    .hidden{
+        display: none;
+    }
 
 }
 

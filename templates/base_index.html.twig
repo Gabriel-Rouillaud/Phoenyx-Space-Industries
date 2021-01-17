@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="icon" type="image/png" sizes="32x32" href={{ asset('assets/img/icons/favicon-32x32.png') }}>
+        <link rel="icon" type="image/png" sizes="16x16" href={{ asset('assets/img/icons/favicon-16x16.png') }}>
+        <meta name=author description="Gabriel ROUILLAUD">
+        <meta name=description description="Space travel agency">
+        <meta name="keywords" description="Space, Travel, Journey, Planets, Stars, Booking">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ asset('assets/css/base_index.css') }}">
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navigation">
+                    {% block li %}{% endblock %}
+                </ul>
+
+                <div class="burger-nav">
+                    <div class="openMenu">
+                        <img src="{{ asset('assets/nav/019-menu-1.png') }}" alt="" class="burger-menu">
+                    </div>
+                    <div>
+                        <img src={{ asset('assets/img/logos/3eme_logo(1).png') }} alt="" class="logo">
+                    </div>
+                    <ul class="mainMenu">
+                        <div class="closeMenu">
+                            <img src="{{ asset('assets/nav/031-cancel.png') }}" alt="" class="close">
+                        </div>
+                    {% block li_resp %}{% endblock %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+    <footer>
+        <div>
+            <nav>
+                <ul class="texts">
+                    <li><a href="{{ path('page_contact') }}">Contact</a></li>
+                    <li><a href="{{ path('page_privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ path('page_faq') }}">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="box-lang"><img src={{ asset('assets/img/icons/united-kingdom.png')}} alt="" class="lang"></div>
+    </footer>
+        <script src="{{ asset('assets/js/lang.js') }}"></script>
+        <script src="{{ asset('assets/js/burger.js') }}"></script>
+    </body>
+</html>

@@ -31,7 +31,7 @@ class __TwigTemplate_6d77fca9cd4c584e9cd5400f01f9672cb59c16246e9a736951e81737abf
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "base_index.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -43,7 +43,7 @@ class __TwigTemplate_6d77fca9cd4c584e9cd5400f01f9672cb59c16246e9a736951e81737abf
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "contact.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "contact.html.twig", 1);
+        $this->parent = $this->loadTemplate("base_index.html.twig", "contact.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -70,6 +70,6 @@ class __TwigTemplate_6d77fca9cd4c584e9cd5400f01f9672cb59c16246e9a736951e81737abf
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"base.html.twig\" %}", "contact.html.twig", "/opt/lampp/htdocs/Phoenix-Space-Industries/templates/contact.html.twig");
+        return new Source("{% extends \"base_index.html.twig\" %}", "contact.html.twig", "/opt/lampp/htdocs/Phoenix-Space-Industries/templates/contact.html.twig");
     }
 }

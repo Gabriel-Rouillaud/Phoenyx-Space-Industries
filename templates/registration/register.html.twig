@@ -1,4 +1,4 @@
-{% extends '_header_footer.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
 {% block stylesheets %}<link rel="stylesheet" href={{ asset('assets/css/login.css') }}>{% endblock %}
@@ -14,9 +14,63 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <div class="title">
+        <h1>Register</h1>
+    </div>
 
-    {{ form_start(registrationForm) }}
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    <div class="form">
+        {{ form_start(registrationForm) }}
+        <div class="fields">
+            {{ form_label(registrationForm.name) }}
+            {{ form_widget(registrationForm.name) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.firstname) }}
+            {{ form_widget(registrationForm.firstname) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.birthdate) }}
+            {{ form_widget(registrationForm.birthdate) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.genre) }}
+            {{ form_widget(registrationForm.genre) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.Password) }}
+            {{ form_widget(registrationForm.Password) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.adress) }}
+            {{ form_widget(registrationForm.adress) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.zip_code) }}
+            {{ form_widget(registrationForm.zip_code) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.country) }}
+            {{ form_widget(registrationForm.country) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.phone) }}
+            {{ form_widget(registrationForm.phone) }}
+        </div>
+        <div class="fields">
+            {{ form_label(registrationForm.agreeTerms) }}
+            {{ form_widget(registrationForm.agreeTerms) }}
+        </div>
+
+        <div class="fields">
+            <button type="submit" class="btn">Register</button>
+        </div>
+
+        {{ form_end(registrationForm) }}
+    </div>
+
+
 {% endblock %}

@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* _header_footer.html.twig */
+/* base.html.twig */
 class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1cc728 extends Template
 {
     private $source;
@@ -38,10 +38,10 @@ class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_header_footer.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_header_footer.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -63,7 +63,7 @@ class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1
         <meta charset=\"UTF-8\">
         <link rel=\"stylesheet\" href=\"";
         // line 12
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/_header_footer.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/base.css"), "html", null, true);
         echo "\">
         <title>";
         // line 13
@@ -207,7 +207,7 @@ class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1
 
     public function getTemplateName()
     {
-        return "_header_footer.html.twig";
+        return "base.html.twig";
     }
 
     public function isTraitable()
@@ -233,7 +233,7 @@ class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1
         <meta name=\"keywords\" description=\"Space, Travel, Journey, Planets, Stars, Booking\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
         <meta charset=\"UTF-8\">
-        <link rel=\"stylesheet\" href=\"{{ asset('assets/css/_header_footer.css') }}\">
+        <link rel=\"stylesheet\" href=\"{{ asset('assets/css/base.css') }}\">
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
@@ -266,6 +266,6 @@ class __TwigTemplate_ccb92fd8555811a2018039c2d2a142bfb9fba0eb8fa7b9d5bae8b3ba7e1
     </footer>
     </body>
 </html>
-", "_header_footer.html.twig", "/opt/lampp/htdocs/Phoenix-Space-Industries/templates/_header_footer.html.twig");
+", "base.html.twig", "/opt/lampp/htdocs/Phoenix-Space-Industries/templates/base.html.twig");
     }
 }

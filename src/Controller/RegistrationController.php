@@ -24,7 +24,17 @@ class RegistrationController extends AbstractController
     }
 
     /**
+     * @Route ("/caution", name="app_caution")
+     */
+    public function caution(){
+       return $this->render('registration/be_careful.html.twig');
+    }
+
+    /**
      * @Route("/register", name="app_register")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return Response
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -37,7 +47,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('Password')->getData()
                 )
             );
 
@@ -65,6 +75,8 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/verify/email", name="app_verify_email")
+     * @param Request $request
+     * @return Response
      */
     public function verifyUserEmail(Request $request): Response
     {
@@ -82,6 +94,6 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('page_index');
     }
 }

@@ -6,7 +6,6 @@ namespace App\Form;
 use App\Entity\Departure;
 use App\Entity\Arrival;
 use App\Entity\Destination;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,9 +25,7 @@ class SearchIndexType extends AbstractType
                     ])
                 ]
             ])
-            ->add('arrival', TextType::class)
-            ->add('travel', SubmitType::class, ['label' => 'Travel'])
-        ;
+            ->add('arrival', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
