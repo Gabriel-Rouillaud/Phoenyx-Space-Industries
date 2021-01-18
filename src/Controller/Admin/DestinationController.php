@@ -4,8 +4,8 @@
 namespace App\Controller\Admin;
 
 
-use App\Entity\Destination;
-use App\Form\DestinationType;
+use App\Entity\Destination; // Classe de l'entité "Destination"
+use App\Form\DestinationType; // Classe du formulaire abstrait "Destination"
 use App\Repository\DestinationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\File;
@@ -136,10 +136,11 @@ class DestinationController extends AbstractController
 
 
 
-            $entityManager->persist($destination);
-            $entityManager->flush();
+            $entityManager->persist($destination); //je persiste les données de la destination
+            $entityManager->flush(); // Je l'envoie en base de données
 
-            return $this->redirectToRoute('admin_destination_manager');
+            return $this->redirectToRoute('admin_destination_manager'); // Une fois l'action terminée,
+            // je redirige l'utilisateur vers la page destination manager
 
         }
 

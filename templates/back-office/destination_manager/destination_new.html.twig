@@ -5,6 +5,12 @@
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin/manager.css') }}">{% endblock %}
 
 {% block li %}
+    <li class="hidden"><a href={{ path('solar-map') }}>Map</a></li>
+    <li class="hidden"><a href={{ path('page_index') }} >Home</a></li>
+    <li class="hidden"><a href={{ path('page_account') }}>Account</a></li>
+{% endblock %}
+
+{% block li_resp %}
     <li><a href={{ path('solar-map') }}>Map</a></li>
     <li><a href={{ path('page_index') }} >Home</a></li>
     <li><a href={{ path('page_account') }}>Account</a></li>

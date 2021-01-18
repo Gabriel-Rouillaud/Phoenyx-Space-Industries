@@ -15,6 +15,14 @@
     height: auto;
 }
 
+.burger-menu{
+    width: 15%;
+}
+
+.close{
+    width: 14%;
+}
+
 .width{
     width: 150px;
 }
@@ -28,6 +36,7 @@ header{
 
 main{
     width: 100%;
+    min-height: 70vh;
 }
 
 a{
@@ -76,3 +85,72 @@ footer{
     align-items: center;
 }
 
+nav .openMenu {
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+}
+nav .mainMenu .closeMenu , .icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+
+.burger-nav{
+    display: none;
+}
+
+@media screen and (max-width:800px) {
+
+    .burger-nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav .mainMenu {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        transition: top 1s ease;
+        display: none;
+    }
+
+    nav .mainMenu .closeMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+
+    }
+
+    nav .openMenu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    nav .mainMenu li a:hover {
+        background: none;
+        color: rgb(255, 123, 0);
+        font-size: 1.6rem;
+    }
+
+
+    .hidden-logo {
+        display: unset;
+        width: 50px;
+    }
+    
+    .navigation{
+        display: none;
+    }
+
+}

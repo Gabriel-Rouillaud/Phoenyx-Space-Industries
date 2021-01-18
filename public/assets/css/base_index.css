@@ -43,7 +43,11 @@ a:hover{
 }
 
 .burger-menu{
-    width: 30%;
+    width: 15%;
+}
+
+.logo-burger{
+    width: 80px;
 }
 
 
@@ -144,6 +148,10 @@ nav .mainMenu .closeMenu , .icons i {
     .hidden-logo{
         display: unset;
         width: 50px;
+    }
+
+    .navigation{
+        display: none;
     }
 
 

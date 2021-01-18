@@ -20,6 +20,21 @@
                     <div><img src={{ asset('assets/img/logos/3eme_logo(1).png') }} alt="" class="logo"></div>
                     {% block li %}{% endblock %}
                 </ul>
+
+                <div class="burger-nav">
+                    <div class="openMenu">
+                        <img src="{{ asset('assets/nav/019-menu-1.png') }}" alt="" class="burger-menu">
+                    </div>
+                    <div>
+                        <img src={{ asset('assets/img/logos/3eme_logo(1).png') }} alt="" class="logo">
+                    </div>
+                    <ul class="mainMenu">
+                        <div class="closeMenu">
+                            <img src="{{ asset('assets/nav/031-cancel.png') }}" alt="" class="close">
+                        </div>
+                        {% block li_resp %}{% endblock %}
+                    </ul>
+                </div>
             </nav>
         </header>
 
@@ -36,6 +51,6 @@
         </nav>
         <div class="box-lang"><img src={{ asset('assets/img/icons/united-kingdom.png')}} alt="" class="lang"></div>
     </footer>
-
+        <script src="{{ asset('assets/js/burger.js') }}"></script>
     </body>
 </html>

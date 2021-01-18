@@ -9,6 +9,16 @@
     <li><a href="{{ path('app_logout') }}" class="logout">Logout</a></li>
 {% endblock %}
 
+{% block li_resp %}
+    <li><a href="{{ path('solar-map') }}">Map</a></li>
+    <li><a href="{{ path('page_index') }}">Home</a></li>
+    <li><a href="{{ path('app_logout') }}" class="logout">Logout</a></li>
+{% endblock %}
+
+
+
+
+
 {% block main %}
 
     <div class="welcome">
@@ -18,11 +28,14 @@
 
 
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('admin_destination_manager') }}"><div>Destination Manager</div></a>
-        <a href="{{ path('admin_user_manager') }}"><div>User Manager</div></a>
+        <div class="account">
+            <a href="{{ path('admin_destination_manager') }}"><div>Destination Manager</div></a>
+            <a href="{{ path('admin_user_manager') }}"><div>User Manager</div></a>
+        </div>
+
     {% endif %}
 
-    <a href="{{ path('page_profile')}}"><div>Your personals informations</div></a>
+
 
 
 
